@@ -75,7 +75,16 @@ namespace Elevator
         }
         public void RemovePassenger(List<Passenger>a)
         {
-            foreach (Passenger pass in a) //for
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                if (a[i].Destination == Currentfloor)
+                {
+                    CurrentPassenger.Remove(a[i]); ///Skapade en del problem
+                    //      Temp.Add(pass);
+                }
+            }
+            /*foreach (Passenger pass in a) //for
             {
                 if (CurrentPassenger.Count < Capacity) //behövs ej här??
                 {
@@ -100,34 +109,58 @@ namespace Elevator
                         }
                     }
                 }
-            }
+            } */
  
         }
         public void AddPassengerUpp(List<Passenger> a)
         {
-            foreach (Passenger pass in a) //FUUUUck vad är problemet :(
+            for (int i = 0; i < a.Count; i++)
             {
-                 if(CurrentPassenger.Count < Capacity)
-                 {
-                    if (pass.Destination > Currentfloor )
+                if (CurrentPassenger.Count < Capacity)
+                {
+                    if (a[i].Destination > Currentfloor)
                     {
-                        CurrentPassenger.Add(pass);
-                      //  Floorlevels[Currentfloor].RemovePassengerQueue(pass); åtgärdar problem
+                        CurrentPassenger.Add(a[i]);
+                        // Floorlevels[Currentfloor].RemovePassengerQueue(pass);
                     }
-                    
-                 }
 
+                }
             }
-            foreach(Passenger pass in CurrentPassenger) //lr ha en tillf'llig list för borttagning
-            { 
-                Floorlevels[Currentfloor].RemovePassengerQueue(pass);
-            }
+            /*  foreach (Passenger pass in a) //FUUUUck vad är problemet :(
+              {
+                   if(CurrentPassenger.Count < Capacity)
+                   {
+                      if (pass.Destination > Currentfloor )
+                      {
+                          CurrentPassenger.Add(pass);
+                        //  Floorlevels[Currentfloor].RemovePassengerQueue(pass); åtgärdar problem
+                      }
+
+                   }
+
+              }
+              foreach(Passenger pass in CurrentPassenger) //lr ha en tillf'llig list för borttagning
+              { 
+                  Floorlevels[Currentfloor].RemovePassengerQueue(pass);
+              } */
         }
         public void AddPassengerDown(List<Passenger> a)
         {
-            foreach (Passenger pass in a)
+            for (int i = 0; i < a.Count; i++)
             {
-                if (CurrentPassenger.Count < 10)
+                if (CurrentPassenger.Count < Capacity)
+                {
+                    if (a[i].Destination < Currentfloor)
+                    {
+                        CurrentPassenger.Add(a[i]);
+                        // Floorlevels[Currentfloor].RemovePassengerQueue(pass);
+                    }
+
+                }
+            }
+          /*  foreach (Passenger pass in a)
+            {
+                if (CurrentPassenger.Count < Capacity)
                 {
                     if (pass.Destination < Currentfloor)
                     {
@@ -137,11 +170,11 @@ namespace Elevator
 
                 }
 
-            }
+            } 
             foreach (Passenger pass in CurrentPassenger) //lr ha en tillf'llig list för borttagning - kontrollera att dett funkar
             {
                 Floorlevels[Currentfloor].RemovePassengerQueue(pass);
-            }
+            } */
 
         }
         public int SetDestination(List<Passenger> CuP)
