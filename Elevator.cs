@@ -67,12 +67,12 @@ namespace Elevator
             AddPassengerUpp(CurrentPassenger);
             SetDestination(CurrentPassenger);
 
-            if (Currentfloor > ElevatorDirection)
+            if (Currentfloor < ElevatorDirection)
             {
                 // AddPassengerUpp(CurrentPassenger);
                 GoUpp(Floorlevels, ElevatorDirection);
             }
-            else if (Currentfloor < ElevatorDirection)
+            else if (Currentfloor > ElevatorDirection)
             {
                 // AddPassengerDown(CurrentPassenger);
                 GoDown(Floorlevels, ElevatorDirection);
@@ -128,9 +128,21 @@ namespace Elevator
                     //   if (a[i].Destination > Currentfloor)
                     {
                         CurrentPassenger.Add(a[i]);
-                        // Floorlevels[Currentfloor].RemovePassengerQueue(pass);
+                           Floorlevels[Currentfloor].RemovePassengerQueue(a[i]);
+                        i -= 1;
                     }
 
+                }
+            }
+    /*        for (int i = 0; i < CurrentPassenger.Count; i++)
+            {
+                for (int j = 0; j < a.Count; j++)
+                {
+                    if (a[j] == CurrentPassenger[i])
+                    {
+                        Floorlevels[Currentfloor].RemovePassengerQueue(a[i]);
+                        j -= 1;
+                    }
                 }
             }
             /*  foreach (Passenger pass in a) //FUUUUck vad är problemet :(
