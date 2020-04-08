@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,10 +6,11 @@ namespace Elevator
 {
     class Passenger
     {
-        public int destination { get; private set; }
+        public int Destination { get; private set; }
+        //vi kan ju lägga till namn, eventuellt individuell timeunit.
         public Passenger(int _destination)
         {
-            destination = _destination;   
+            Destination = _destination;
         }
     }
 }
