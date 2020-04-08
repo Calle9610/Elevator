@@ -1,4 +1,4 @@
-ing System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -29,24 +29,21 @@ namespace Elevator
                 TimeUnits += 1;
             }
 
-            Console.WriteLine($"Våningsplan {Currentfloor}");
+            Console.WriteLine($"Våningsplan {Currentfloor} och tid som gått {TimeUnits} tidsenheter");
             RemovePassenger(CurrentPassenger);
             AddPassenger(Floorlevels[Currentfloor].Queue);
             SetDestination(CurrentPassenger);
-            if (Currentfloor < ElevatorDirection)
+            if (Currentfloor <= ElevatorDirection)
             {
-                // AddPassengerUpp(CurrentPassenger); //Fixa till enbart en metod
                 GoUpp(Floorlevels, ElevatorDirection);
             }
             else if (Currentfloor > ElevatorDirection)
             {
-                // AddPassengerDown(CurrentPassenger);
                 GoDown(Floorlevels, ElevatorDirection);
-
             }
             else
             {
-
+                 //Tillägg
             }
             //Else stäng av??
 
@@ -60,9 +57,9 @@ namespace Elevator
                 TimeUnits += 1;
             }
 
-            Console.WriteLine($"Våningsplan {Currentfloor}");
+            Console.WriteLine($"Våningsplan {Currentfloor} och tid som gått {TimeUnits} tidsenheter");
             RemovePassenger(CurrentPassenger);
-            AddPassenger(CurrentPassenger);
+            AddPassenger(Floorlevels[Currentfloor].Queue);
             SetDestination(CurrentPassenger);
 
             if (Currentfloor < ElevatorDirection)
@@ -82,7 +79,8 @@ namespace Elevator
             {
                 if (a[i].Destination == Currentfloor)
                 {
-                    CurrentPassenger.Remove(a[i]); 
+                    CurrentPassenger.Remove(a[i]);
+                    i--;
                 }
             }
         }
