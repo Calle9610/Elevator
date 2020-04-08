@@ -28,10 +28,13 @@ namespace Elevator
             Passenger Ture = new Passenger(4);
             Passenger Bengt = new Passenger(7);
             Passenger Astrid = new Passenger(1);
+            Passenger Bo = new Passenger(5);
+
             zero.AddPassengerQueue(Adam);
             nine.AddPassengerQueue(Ture);
             zero.AddPassengerQueue(Bengt);
             seven.AddPassengerQueue(Astrid);
+            three.AddPassengerQueue(Bo);
 
            // Start(Otis);// Nåt har blibit konstigt här...
             Otis.AddPassengerUpp(zero.Queue);
