@@ -1,28 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Elevator
 {
-   class Floor
+    class Floor 
     {
-       public int floor { get; private set; }
-       public List<Passenger> queue { get; private set; }
-            public Floor(int _floor)
-            {
-                floor = _floor;
-                queue = new List<Passenger> { };
-            
-           }
-        public void AddPassenger(Passenger a)
+        public int FloorLevel { get; private set; } //behövs ens denna
+        public List<Passenger> Queue { get; private set; }
+        public Floor(int _floor) 
         {
-            queue.Add(a);
+            FloorLevel = _floor;
+            Queue = new List<Passenger> { };
 
+        }
+        public void AddPassengerQueue(Passenger a)
+        {
+            Queue.Add(a);
+
+        }
+        public void RemovePassengerQueue(Passenger a)
+        {
+            Queue.Remove(a);
         }
         public override string ToString()
         {
             return base.ToString();
         }
+
     }
-    }
+}
+
 
